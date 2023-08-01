@@ -53,10 +53,12 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBPEDW0bA-FnRoTM5ZRzgAsPNv8njYWqlI',
-    appId: '1:380646433430:android:251b72990ecf41129558b7',
-    messagingSenderId: '380646433430',
-    projectId: 'music-player-23a17',
-    storageBucket: 'music-player-23a17.appspot.com',
+    apiKey: 'AIzaSyDKZ2NIZs8zKHcXGJvxoyriZ5r6ZcMG_eI',
+    appId: '1:635101400660:android:b5f65d0aae4691463e67c1',
+    messagingSenderId: '635101400660',
+    projectId: 'music-task-b8544',
+    databaseURL:
+        'https://music-task-b8544-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'music-task-b8544.appspot.com',
   );
 }

@@ -28,8 +28,8 @@ class _HomeViewState extends State<HomeView> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Color.fromARGB(255, 20, 121, 31),
-            Color.fromARGB(255, 176, 204, 36),
+            Color.fromARGB(255, 23, 86, 173),
+            Color.fromARGB(255, 180, 21, 116),
           ],
         ),
       ),
@@ -83,7 +83,7 @@ class _HomeViewState extends State<HomeView> {
                               child: Text(
                                 song.title,
                                 style: const TextStyle(
-                                    color: Color.fromARGB(255, 55, 102, 91),
+                                    color: Color.fromARGB(255, 66, 198, 167),
                                     fontWeight: FontWeight.bold,
                                     fontSize: 13),
                                 textAlign: TextAlign.start,
@@ -94,7 +94,7 @@ class _HomeViewState extends State<HomeView> {
                               child: Text(
                                 song.artist,
                                 style: const TextStyle(
-                                    color: Color.fromARGB(136, 104, 26, 26),
+                                    color: Color.fromARGB(135, 52, 248, 45),
                                     fontSize: 12,
                                     fontWeight: FontWeight.bold),
                                 textAlign: TextAlign.center,
