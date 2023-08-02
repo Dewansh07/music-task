@@ -94,4 +94,9 @@ class AudioPlayerViewModel extends ChangeNotifier {
     playlist.shuffle();
     notifyListeners();
   }
+
+  //repeat current song
+  void repeatSong() {
+    player.setLoopMode(LoopMode.one);
+  }
 }
