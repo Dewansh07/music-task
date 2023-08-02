@@ -146,7 +146,7 @@ class _BottomPlayerState extends State<BottomPlayer> {
                         padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         child: IconButton(
                           onPressed: () {
-                            audioPlayerViewModel.next();
+                            audioPlayerViewModel.repeatSong;
                           },
                           icon: Icon(
                             Icons.repeat,
