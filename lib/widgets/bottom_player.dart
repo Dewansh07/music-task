@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:music_task/MVVM/Model/music_model.dart';
@@ -39,32 +41,77 @@ class _BottomPlayerState extends State<BottomPlayer> {
     return audioPlayerViewModel.currentIndex == -1
         ? SizedBox()
         : Container(
-            height: 170,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color.fromARGB(255, 23, 86, 173),
+                  Color.fromARGB(255, 180, 21, 116),
+                ],
+              ),
+            ),
+            height: 185,
             width: double.infinity,
-            color: Color.fromARGB(255, 31, 19, 36),
-            child: Column(
-              children: [
-                SizedBox(height: 10),
-                Text(
-                  currentSong?.title ?? "",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white70),
-                ),
-                Text(
-                  currentSong?.artist ?? "",
-                  style: TextStyle(fontSize: 14, color: Colors.white70),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Row(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                              child: Text(
+                                currentSong?.title ?? "",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            SizedBox(height: 4),
+                            Text(
+                              currentSong?.artist ?? "",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white70,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          // Implement your logic for closing the player or going to the main player screen.
+                        },
+                        icon: Icon(
+                          Icons.close,
+                          size: 24,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         formatDuration(audioPlayerViewModel.player.position),
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.white70),
+                            fontWeight: FontWeight.bold, color: Colors.white),
                       ),
                       Expanded(
                         child: Slider(
@@ -87,60 +134,87 @@ class _BottomPlayerState extends State<BottomPlayer> {
                       Text(
                         formattedDuration,
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.white70),
+                            fontWeight: FontWeight.bold, color: Colors.white),
                       ),
                     ],
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        audioPlayerViewModel.previous();
-                      },
-                      icon: Icon(
-                        Icons.skip_previous,
-                        size: 32,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(width: 20),
-                    MaterialButton(
-                      onPressed: () {
-                        if (audioPlayerViewModel.isPlaying) {
-                          audioPlayerViewModel.pause();
-                        } else {
-                          audioPlayerViewModel.resume();
-                        }
-                      },
-                      shape: CircleBorder(),
-                      color: Color(0xFF254354),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          audioPlayerViewModel.isPlaying
-                              ? Icons.pause
-                              : Icons.play_arrow,
-                          color: Colors.white,
-                          size: 42,
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: IconButton(
+                          onPressed: () {
+                            audioPlayerViewModel.next();
+                          },
+                          icon: Icon(
+                            Icons.repeat,
+                            size: 15,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 20),
-                    IconButton(
-                      onPressed: () {
-                        audioPlayerViewModel.next();
-                      },
-                      icon: Icon(
-                        Icons.skip_next,
-                        size: 32,
-                        color: Colors.white,
+                      IconButton(
+                        onPressed: () {
+                          audioPlayerViewModel.previous();
+                        },
+                        icon: Icon(
+                          Icons.skip_previous,
+                          size: 32,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      SizedBox(width: 20),
+                      MaterialButton(
+                        onPressed: () {
+                          if (audioPlayerViewModel.isPlaying) {
+                            audioPlayerViewModel.pause();
+                          } else {
+                            audioPlayerViewModel.resume();
+                          }
+                        },
+                        shape: CircleBorder(),
+                        color: Color(0xFF254354),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(
+                            audioPlayerViewModel.isPlaying
+                                ? Icons.pause
+                                : Icons.play_arrow,
+                            color: Colors.white,
+                            size: 42,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      IconButton(
+                        onPressed: () {
+                          audioPlayerViewModel.next();
+                        },
+                        icon: Icon(
+                          Icons.skip_next,
+                          size: 32,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: IconButton(
+                          onPressed: () {
+                            audioPlayerViewModel.shufflePlaylist();
+                          },
+                          icon: Icon(
+                            Icons.shuffle,
+                            size: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           );
   }

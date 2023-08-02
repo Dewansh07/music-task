@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:music_task/MVVM/ViewModel/audio_player_view_model.dart';
 import 'package:music_task/widgets/bottom_player.dart';
-import 'package:music_task/widgets/discover_music.dart';
+
 import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
@@ -160,29 +160,32 @@ class _DiscoverMusic extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Welcome',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
+          Text('Welcome',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              )),
           const SizedBox(height: 5),
           Text(
             'Enjoy your favorite music',
-            style: Theme.of(context)
-                .textTheme
-                .titleLarge!
-                .copyWith(fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 25,
+            ),
           ),
           const SizedBox(height: 20),
           TextFormField(
             decoration: InputDecoration(
+              iconColor: Color.fromARGB(255, 224, 54, 54),
               isDense: true,
               filled: true,
-              fillColor: Color.fromARGB(255, 4, 3, 32),
+              fillColor: Color.fromARGB(255, 227, 227, 231),
               hintText: 'Search',
               hintStyle: Theme.of(context)
                   .textTheme
                   .bodyMedium!
-                  .copyWith(color: Color.fromARGB(255, 239, 50, 50)),
+                  .copyWith(color: Color.fromARGB(255, 80, 24, 24)),
               prefixIcon:
                   Icon(Icons.search, color: Color.fromARGB(255, 224, 54, 54)),
               border: OutlineInputBorder(
