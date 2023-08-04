@@ -134,10 +134,9 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         Container(
           margin: const EdgeInsets.only(right: 20),
           child: Icon(
-            Icons
-                .person, // Replace 'Icons.person' with the desired icon from the Icons class.
-            size: 30, // Adjust the size of the icon as needed.
-            color: Colors.blue, // Customize the color of the icon as needed.
+            Icons.person,
+            size: 30,
+            color: Colors.blue,
           ),
         ),
       ],
